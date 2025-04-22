@@ -43,8 +43,7 @@ public class Circle extends OpMode {
      */
     @Override
     public void init() {
-        Constants.setConstants(FConstants.class, LConstants.class);
-        follower = new Follower(hardwareMap);
+        follower = new Follower(hardwareMap, FConstants.class, LConstants.class);
 
         circle = follower.pathBuilder()
                 .addPath(new BezierCurve(new Point(0,0, Point.CARTESIAN), new Point(RADIUS,0, Point.CARTESIAN), new Point(RADIUS, RADIUS, Point.CARTESIAN)))
@@ -57,8 +56,8 @@ public class Circle extends OpMode {
 
         telemetryA = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
         telemetryA.addLine("This will run in a roughly circular shape of radius " + RADIUS
-                            + ", starting on the right-most edge. So, make sure you have enough "
-                            + "space to the left, front, and back to run the OpMode.");
+                + ", starting on the right-most edge. So, make sure you have enough "
+                + "space to the left, front, and back to run the OpMode.");
         telemetryA.update();
     }
 
