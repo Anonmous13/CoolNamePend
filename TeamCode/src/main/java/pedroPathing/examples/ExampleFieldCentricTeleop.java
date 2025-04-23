@@ -43,12 +43,12 @@ public class ExampleFieldCentricTeleop extends OpMode {
     @Override
     public void loop() {
 
-        /* Update Pedro to move the robot based on:
-        - Forward/Backward Movement: -gamepad1.left_stick_y
-        - Left/Right Movement: -gamepad1.left_stick_x
-        - Turn Left/Right Movement: -gamepad1.right_stick_x
-        - Robot-Centric Mode: false
-        */
+//        // Update Pedro to move the robot based on:
+//        - Forward/Backward Movement: -gamepad1.left_stick_y
+//        - Left/Right Movement: -gamepad1.left_stick_x
+//        - Turn Left/Right Movement: -gamepad1.right_stick_x
+//        - Robot-Centric Mode: false
+//        */
 
         follower.setTeleOpMovementVectors(-gamepad1.left_stick_y, -gamepad1.left_stick_x, -gamepad1.right_stick_x, false);
         follower.update();
