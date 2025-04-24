@@ -85,30 +85,18 @@ public class CNP_TELE extends OpMode {
         backLeft.setPower(blPower);
         frontRight.setPower(frPower);
 
-        //sets data for the motor position
-        int flMotorPos = frontLeft.getCurrentPosition();
-        int frMotorPos = frontRight.getCurrentPosition();
-        int brMotorPos = backRight.getCurrentPosition();
-        int blMotorPos = backLeft.getCurrentPosition();
-
-        //sets data for the motors velocity
-        double flMotorVelocity = frontLeft.getVelocity();
-        double frMotorVelocity = frontRight.getVelocity();
-        double brMotorVelocity = backRight.getVelocity();
-        double blMotorVelocity = backLeft.getVelocity();
-
         //telemetry for debugging
         //motor position telemetry
-        telemetry.addData("Front Left Motor Position:", flMotorPos);
-        telemetry.addData("Front Right Motor Position:", frMotorPos);
-        telemetry.addData("Back Right Motor Position:", brMotorPos);
-        telemetry.addData("Back Left Motor Position:", blMotorPos);
+        telemetry.addData("Front Left Motor Position:", frontLeft.getCurrentPosition());
+        telemetry.addData("Front Right Motor Position:", frontRight.getCurrentPosition());
+        telemetry.addData("Back Right Motor Position:", backRight.getCurrentPosition());
+        telemetry.addData("Back Left Motor Position:", backLeft.getCurrentPosition());
         //motor velocity telemetry
-        telemetry.addData("Bl Velocity:", blMotorVelocity);
-        telemetry.addData("Br Motor Velocity", brMotorVelocity);
-        telemetry.addData("Fr velocity", frMotorVelocity);
-        telemetry.addData("Fl Velocity", flMotorVelocity);
+        telemetry.addData("Bl Velocity:", backLeft.getVelocity());
+        telemetry.addData("Br Motor Velocity", backRight.getVelocity());
+        telemetry.addData("Fr velocity", frontRight.getVelocity());
+        telemetry.addData("Fl Velocity", frontLeft.getVelocity());
     }
 
-}
+}m
 
