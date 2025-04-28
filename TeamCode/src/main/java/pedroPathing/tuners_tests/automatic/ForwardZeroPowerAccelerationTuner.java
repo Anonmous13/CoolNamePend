@@ -52,10 +52,10 @@ import pedroPathing.constants.LConstants;
 public class ForwardZeroPowerAccelerationTuner extends OpMode {
     private ArrayList<Double> accelerations = new ArrayList<>();
 
-    private DcMotorEx leftFront;
-    private DcMotorEx leftRear;
-    private DcMotorEx rightFront;
-    private DcMotorEx rightRear;
+    private DcMotorEx fl;
+    private DcMotorEx fr;
+    private DcMotorEx bl;
+    private DcMotorEx br;
     private List<DcMotorEx> motors;
 
     private PoseUpdater poseUpdater;
@@ -78,16 +78,16 @@ public class ForwardZeroPowerAccelerationTuner extends OpMode {
     public void init() {
         poseUpdater = new PoseUpdater(hardwareMap, FConstants.class, LConstants.class);
 
-        leftFront = hardwareMap.get(DcMotorEx.class, leftFrontMotorName);
-        leftRear = hardwareMap.get(DcMotorEx.class, leftRearMotorName);
-        rightRear = hardwareMap.get(DcMotorEx.class, rightRearMotorName);
-        rightFront = hardwareMap.get(DcMotorEx.class, rightFrontMotorName);
-        leftFront.setDirection(leftFrontMotorDirection);
-        leftRear.setDirection(leftRearMotorDirection);
-        rightFront.setDirection(rightFrontMotorDirection);
-        rightRear.setDirection(rightRearMotorDirection);
+        fl = hardwareMap.get(DcMotorEx.class, leftFrontMotorName);
+        bl = hardwareMap.get(DcMotorEx.class, leftRearMotorName);
+        br = hardwareMap.get(DcMotorEx.class, rightRearMotorName);
+        fr = hardwareMap.get(DcMotorEx.class, rightFrontMotorName);
+        fl.setDirection(leftFrontMotorDirection);
+        bl.setDirection(leftRearMotorDirection);
+        fr.setDirection(rightFrontMotorDirection);
+        br.setDirection(rightRearMotorDirection);
 
-        motors = Arrays.asList(leftFront, leftRear, rightFront, rightRear);
+        motors = Arrays.asList(fl, bl, fr, br);
 
         for (DcMotorEx motor : motors) {
             MotorConfigurationType motorConfigurationType = motor.getMotorType().clone();
@@ -113,10 +113,10 @@ public class ForwardZeroPowerAccelerationTuner extends OpMode {
      */
     @Override
     public void start() {
-        leftFront.setPower(1);
-        leftRear.setPower(1);
-        rightFront.setPower(1);
-        rightRear.setPower(1);
+        fl.setPower(1);
+        bl.setPower(1);
+        fr.setPower(1);
+        br.setPower(1);
     }
 
     /**

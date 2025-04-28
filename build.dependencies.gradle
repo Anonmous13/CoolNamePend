@@ -1,7 +1,7 @@
 repositories {
     mavenCentral()
     google()
-
+    //repos for pedro
     maven { url = 'https://maven.brott.dev/' }
     maven { url= "https://maven.pedropathing.com/" }
 
@@ -16,6 +16,7 @@ dependencies {
     implementation 'org.firstinspires.ftc:Hardware:10.2.0'
     implementation 'org.firstinspires.ftc:FtcCommon:10.2.0'
     implementation 'org.firstinspires.ftc:Vision:10.2.0'
+    //implementation for pedro pathing
     implementation 'com.pedropathing:pedro:1.0.9'
 
     //noinspection GradleDependency

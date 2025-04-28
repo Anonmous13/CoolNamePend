@@ -2,7 +2,8 @@ package botwork.exampleAutosAndTeles;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.Range;
 
 /**
@@ -23,14 +24,12 @@ import com.qualcomm.robotcore.util.Range;
  * @author Hamza Chandia
  * @version 1.0, 04/19/2025
  */
-
-
 @TeleOp(name = "TeleOp with FSM")
 public class CNP_TELE extends OpMode {
     // Variables for assigning power easily.
     private double flPower, frPower, blPower, brPower;
     // Defining the motors
-    private DcMotorEx frontRight, frontLeft, backRight, backLeft = null;
+    private DcMotor frontRight, frontLeft, backRight, backLeft = null;
 
     // Enum for state machine (not used in this code, but defined enums listed)
     public enum SlideState {
@@ -39,32 +38,33 @@ public class CNP_TELE extends OpMode {
         INTAKE
     }
 
+    SlideState slideState = SlideState.HOME;
     @Override
     public void init() {
         // Hardware map - assigns hardware names from the config
-        frontRight = hardwareMap.get(DcMotorEx.class, "fr");//front right 0
-        frontLeft = hardwareMap.get(DcMotorEx.class, "fl");// front left 1
-        backLeft = hardwareMap.get(DcMotorEx.class, "bl");//back left 2
-        backRight = hardwareMap.get(DcMotorEx.class, "br");//back right 3
+        frontRight = hardwareMap.get(DcMotor.class, "fr");//front right 0
+        frontLeft = hardwareMap.get(DcMotor.class, "fl");// front left 1
+        backLeft = hardwareMap.get(DcMotor.class, "bl");//back left 2
+        backRight = hardwareMap.get(DcMotor.class, "br");//back right 3
 
         //resets encoder for accurate positioning
-        frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 
         // Set motor directions
-        frontRight.setDirection(DcMotorEx.Direction.REVERSE);
-        backRight.setDirection(DcMotorEx.Direction.REVERSE);
-        frontLeft.setDirection(DcMotorEx.Direction.FORWARD);
-        backLeft.setDirection(DcMotorEx.Direction.FORWARD);
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
 
         // Set zero power behavior to BRAKE
-        frontLeft.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        frontRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        backLeft.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        backRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     @Override
@@ -91,11 +91,6 @@ public class CNP_TELE extends OpMode {
         telemetry.addData("Front Right Motor Position:", frontRight.getCurrentPosition());
         telemetry.addData("Back Right Motor Position:", backRight.getCurrentPosition());
         telemetry.addData("Back Left Motor Position:", backLeft.getCurrentPosition());
-        //motor velocity telemetry
-        telemetry.addData("Bl Velocity:", backLeft.getVelocity());
-        telemetry.addData("Br Motor Velocity", backRight.getVelocity());
-        telemetry.addData("Fr velocity", frontRight.getVelocity());
-        telemetry.addData("Fl Velocity", frontLeft.getVelocity());
     }
 
 }
