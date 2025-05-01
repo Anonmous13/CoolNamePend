@@ -1,4 +1,4 @@
-package botwork.exampleAutosAndTeles;
+package botwork.opmode.teles;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -32,7 +32,7 @@ public class CNP_TELE extends OpMode {
     private DcMotor frontRight, frontLeft, backRight, backLeft = null;
 
     // Enum for state machine (not used in this code, but defined enums listed)
-    public enum SlideState {
+    private enum SlideState {
         HOME,
         BASKET,
         INTAKE

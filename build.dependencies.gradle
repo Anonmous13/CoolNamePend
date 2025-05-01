@@ -4,7 +4,7 @@ repositories {
     //repos for pedro
     maven { url = 'https://maven.brott.dev/' }
     maven { url= "https://maven.pedropathing.com/" }
-
+    maven { url = "https://maven.rowanmcalpin.com/" }
 }
 
 dependencies {
@@ -16,12 +16,10 @@ dependencies {
     implementation 'org.firstinspires.ftc:Hardware:10.2.0'
     implementation 'org.firstinspires.ftc:FtcCommon:10.2.0'
     implementation 'org.firstinspires.ftc:Vision:10.2.0'
-    //implementation for pedro pathing
     implementation 'com.pedropathing:pedro:1.0.9'
-
+    implementation 'com.acmerobotics.dashboard:dashboard:0.4.16'
     //noinspection GradleDependency
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    //added implementation ftc dashboard
-    implementation 'com.acmerobotics.dashboard:dashboard:0.4.16'
+
 }
 

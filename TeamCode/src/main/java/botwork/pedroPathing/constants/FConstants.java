@@ -1,4 +1,4 @@
-package pedroPathing.constants;
+package botwork.pedroPathing.constants;
 
 import android.icu.text.MeasureFormat;
 
@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class FConstants {
     static {
-        FollowerConstants.localizers = Localizers.PINPOINT;               ;
+        FollowerConstants.localizers = Localizers.PINPOINT;
 
         FollowerConstants.leftFrontMotorName = "fl";
         FollowerConstants.leftRearMotorName = "bl";
@@ -33,7 +33,9 @@ public class FConstants {
         FollowerConstants.useSecondaryHeadingPID = true;
         FollowerConstants.useSecondaryTranslationalPID = false;
         FollowerConstants.useSecondaryDrivePID = false;
+        FollowerConstants.useBrakeModeInTeleOp = true;
 
+        //PIDF coeffi
         FollowerConstants.translationalPIDFCoefficients.setCoefficients(0.28,0.15,0.2,0);
     }
 }
