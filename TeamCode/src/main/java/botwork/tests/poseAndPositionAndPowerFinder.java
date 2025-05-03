@@ -7,7 +7,9 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-
+/* This is a Coordinate finder for and ftc mat, when the season comes it will be efficient as it is using the 3 wheel odo to calculate coordinates.
+It can also calculate positions and power of the motors and servos. But, I have commented the
+ */
 @TeleOp(name = "Coordinate Finder")
 public class poseAndPositionAndPowerFinder extends OpMode {
     private Follower follower;
